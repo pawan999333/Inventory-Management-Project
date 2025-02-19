@@ -1,0 +1,17 @@
+@media(max-width:768px){
+  h1{
+    font-size:18px !important;
+  }
+  button{
+    font-size:10px !important;
+    /* width: 20% !important; */
+  }
+  .namecss{
+    font-size:10px !important;
+  }
+  .table-wrapper{
+    max-height: 270px !important;
+    overflow-y: auto !important;
+  }
+
+}

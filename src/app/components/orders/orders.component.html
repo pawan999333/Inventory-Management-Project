@@ -1,0 +1,56 @@
+  <div class="shadow border" style="background: #ffffff !important;" style="max-width: 100%; width: 100%; overflow-x: auto;">
+    <div class="d-flex justify-content-between p-3" >
+      <h1 class="font-semibold">Orders</h1>
+      <button mat-raised-button color="primary" routerLink="/orders/add">Add Order</button>
+    </div>
+    <mat-form-field appearance="outline" class="col pl-3 filterfield">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+    <div class="table-wrapper" style="overflow-x: auto; width: 100%;">
+
+    <table mat-table [dataSource]="dataSource" matSort class="col table-wrapper" style="min-width: 600px; width: 100%;">
+
+      <ng-container matColumnDef="orderNo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> OrderNo </th>
+        <td mat-cell *matCellDef="let row"> {{row.orderNo}} </td>
+      </ng-container>
+      <ng-container matColumnDef="productId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
+        <td mat-cell *matCellDef="let row"> {{getProductName(row.productId)}} </td>
+      </ng-container>
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantitiy </th>
+        <td mat-cell *matCellDef="let row"> {{row.quantity}} </td>
+      </ng-container>
+      <ng-container matColumnDef="salePrice">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Sale Price </th>
+        <td mat-cell *matCellDef="let row"> {{row.salePrice}} </td>
+      </ng-container>
+      <ng-container matColumnDef="discount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Discount </th>
+        <td mat-cell *matCellDef="let row"> {{row.discount}} </td>
+      </ng-container>
+      <ng-container matColumnDef="totalAmount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Amount </th>
+        <td mat-cell *matCellDef="let row"> {{row.totalAmount}} </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action </th>
+        <td mat-cell *matCellDef="let row" class="d-flex">
+        <button mat-raised-button color="accent" [routerLink]="'/orders/' + row.id" class="mr-2">Edit</button>
+        <button mat-raised-button color="warn" (click)="cancelOrder(row)">Cancel</button>
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>

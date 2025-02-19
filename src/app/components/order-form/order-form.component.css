@@ -1,0 +1,23 @@
+@media(max-width:768px){
+  h1{
+    font-size:15px !important;
+  }
+  mat-label{
+    font-size:10px !important;
+  }
+.firstdiv{
+  /* max-width:100px !important */
+  max-height: 80% !important;
+}
+  .formclass{
+
+    max-height: 70% !important;
+    overflow-y: auto !important;
+  }
+}
+@media(min-width:769px){
+  .parentdiv{
+
+    max-width:700px !important;
+  }
+}

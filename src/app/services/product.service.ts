@@ -13,4 +13,14 @@ export class ProductService {
       getProducts(){
            return this.httpClient.get<Product[]>(environment.apiUrl + "/products")
       }
+
+      getProduct(id:string){
+        return this.httpClient.get<Product>(environment.apiUrl + "/products/" + id);
+     }
+     updateProduct(id:string, product:Product){
+      return this.httpClient.put<Product>(environment.apiUrl + "/products/" + id, product);
+ }
+      addProduct(product:Product){
+        return this.httpClient.post<Product[]>(environment.apiUrl + "/products", product)
+      }
 }

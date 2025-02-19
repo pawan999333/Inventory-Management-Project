@@ -21,7 +21,14 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductFormComponent } from './products/product-form/product-form.component';
+import { ProductsComponent } from './products/products/products.component';
+import { MatSelectModule } from '@angular/material/select';
+import { OrdersComponent } from './components/orders/orders.component';
+import { OrderFormComponent } from './components/order-form/order-form.component';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +36,11 @@ import { FormsModule } from '@angular/forms';
     SidebarComponent,
     HomeComponent,
     BrandsComponent,
-    BrandFormComponent
+    BrandFormComponent,
+    ProductFormComponent,
+    ProductsComponent,
+    OrdersComponent,
+    OrderFormComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +57,10 @@ import { FormsModule } from '@angular/forms';
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    ToastrModule.forRoot()
 
 
   ],

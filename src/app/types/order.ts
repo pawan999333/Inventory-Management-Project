@@ -1,10 +1,10 @@
 export default interface Order {
-  id:string,
+  id?:string,
   orderNo:string,
   productId:string,
-  quantity:number,
-  salePrice:number,
-  discount:number,
-  totalAmount:number
+  quantity:number | null,
+  salePrice:number | null,
+  discount:number | null,
+  totalAmount:number | null,
 
 }

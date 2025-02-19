@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { BrandService } from 'src/app/services/brand.service';
 import Brand from 'src/app/types/brand';
 
@@ -11,7 +12,7 @@ import Brand from 'src/app/types/brand';
 export class BrandFormComponent implements OnInit {
  name!:string;
  brand!:Brand;
-  constructor(public brandService:BrandService, public route:ActivatedRoute, public router:Router) { }
+  constructor(public toaster:ToastrService,public brandService:BrandService, public route:ActivatedRoute, public router:Router) { }
 
   ngOnInit(): void {
    const id= this.route.snapshot.params['id'];
@@ -28,14 +29,14 @@ export class BrandFormComponent implements OnInit {
   addBrand(){
     console.log("name",this.name)
     if(!this.name){
-      alert("Please enter brand name");
+      this.toaster.error("Please enter brand name");
       return;
     }
     let brand:Brand={
       name:this.name
     }
    this.brandService.addBrand(brand).subscribe((result)=>{
-    alert("Brand added successfully")
+    this.toaster.success("Brand added successfully")
     this.router.navigateByUrl('/brands')
    })
   }
@@ -43,7 +44,7 @@ export class BrandFormComponent implements OnInit {
   updateBrand(){
     console.log("name",this.name)
     if(!this.name){
-      alert("Please enter brand name");
+      this.toaster.error("Please enter brand name");
       return;
     }
     let brand:Brand={
@@ -51,7 +52,7 @@ export class BrandFormComponent implements OnInit {
       name:this.name
     }
    this.brandService.updateBrand(brand).subscribe((result)=>{
-    alert("Brand updated successfully")
+    this.toaster.success("Brand updated successfully")
     this.router.navigateByUrl('/brands')
    })
   }

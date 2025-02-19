@@ -1,0 +1,60 @@
+<div class="d-flex firstdiv justify-content-center">
+  <form [formGroup]="orderForm" class="shadow parentdiv border col-sm-12 p-3" style="background: #ffffff; ">
+
+    <h1 class="p-2 mb-0" *ngIf="!order">Add Order</h1>
+    <h1 class="p-2 mb-0" *ngIf="order">Update Order</h1>
+
+    <div class="d-flex formclass flex-wrap">
+      <div class="col">
+        <mat-label>Order Number</mat-label>
+        <mat-form-field class="col" appreance="outline">
+          <input type="text" matInput formControlName="orderNo">
+        </mat-form-field>
+      </div>
+
+      <div class="col">
+        <mat-label>Product</mat-label>
+        <mat-form-field class="col" appreance="outline">
+          <mat-select formControlName="productId" (valueChange)="productSelected($event)">
+            <mat-option *ngFor="let item of products" [value]="item.id">{{item.name}}(Available Quantity:{{item.availableQuantity}})</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col">
+        <mat-label>Quantity</mat-label>
+        <mat-form-field class="col" appreance="outline">
+          <input type="text" matInput formControlName="quantity">
+        </mat-form-field>
+      </div>
+
+      <div class="col">
+        <mat-label>Sale Price</mat-label>
+        <mat-form-field class="col" appreance="outline">
+          <input type="text" matInput formControlName="salePrice">
+        </mat-form-field>
+      </div>
+
+      <div class="col">
+        <mat-label>Discount</mat-label>
+        <mat-form-field class="col" appreance="outline">
+          <input type="text" matInput formControlName="discount">
+        </mat-form-field>
+      </div>
+
+      <div class="col">
+        <mat-label>Total Amount</mat-label>
+        <mat-form-field class="col" appreance="outline">
+          <input type="text" matInput formControlName="totalAmount">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col d-flex justify-content-center">
+      <button *ngIf="!order" mat-raised-button color="primary" (click)="addOrder()">Add Order</button>
+      <button *ngIf="order" mat-raised-button color="primary" (click)="updateOrder()">Update Order</button>
+
+    </div>
+
+  </form>
+</div>

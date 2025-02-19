@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center">
+  <form [formGroup]="productForm" class="shadow border bg-white p-4" style="width:700px;">
+    <h1 *ngIf="!product">Add Product</h1>
+    <h1 *ngIf="product">Update Product</h1>
+
+    <div class="flex flex-wrap">
+      <div>
+        <mat-label>Product Name
+          <mat-form-field class="col pl-0 pr-0">
+            <input type="text" matInput formControlName="name">
+          </mat-form-field>
+        </mat-label>
+      </div>
+      <div>
+        <mat-label>Product Detail
+          <mat-form-field class="col pl-0 pr-0">
+            <input type="text" matInput formControlName="details">
+          </mat-form-field>
+        </mat-label>
+      </div>
+      <div>
+        <mat-label>Brand Detail
+          <mat-form-field class="col pl-0 pr-0">
+            <mat-select type="text" matInput formControlName="brandId">
+              <!-- <div *ngFor="let item of brands"> -->
+              <mat-option *ngFor="let item of brands" [value]="item.id">{{item.name}}</mat-option>
+              <!-- </div> -->
+            </mat-select>
+          </mat-form-field>
+        </mat-label>
+      </div>
+      <div>
+        <mat-label>Purchase Price
+          <mat-form-field class="col pl-0 pr-0">
+            <input type="number" matInput formControlName="purchasePrice">
+          </mat-form-field>
+        </mat-label>
+      </div>
+      <div>
+        <mat-label>Sale Price
+          <mat-form-field class="col pl-0 pr-0">
+            <input type="number" matInput formControlName="salePrice">
+          </mat-form-field>
+        </mat-label>
+      </div>
+      <div>
+        <mat-label>Available Quantity
+          <mat-form-field class="col pl-0 pr-0">
+            <input type="number" matInput formControlName="availableQuantity">
+          </mat-form-field>
+        </mat-label>
+      </div>
+
+    </div>
+
+    <div class="col d-flex justify-content-center">
+      <button mat-raised-button color="primary" (click)="addProduct()" *ngIf="!product">Add</button>
+      <button mat-raised-button color="primary" (click)="updateProduct()" *ngIf="product">Update</button>
+
+    </div>
+  </form>
+
+</div>

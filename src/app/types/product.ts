@@ -5,5 +5,5 @@ export default interface Product{
   brandId:string,
   purchasePrice:number,
   salePrice:number,
-  availableQuantitiy:number
+  availableQuantity:number
 }

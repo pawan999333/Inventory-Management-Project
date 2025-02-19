@@ -1,0 +1,31 @@
+@media(max-width:768px){
+ .parentdiv{
+    /* width:50% !important; */
+    /* max-width:100% !important; */
+    overflow-x: auto;
+    font-size:10px !important;
+  }
+
+  td{
+    font-size:10px !important;
+  }
+  .table-wrapper{
+    max-height: 230px !important;
+    overflow-y: auto !important;
+  }
+  .addproductcss{
+    font-size:10px !important;
+  }
+  /* @media(max-width:768px){ */
+    h1{
+      font-size:14px !important;
+    }
+    button{
+      font-size:10px !important;
+    }
+    .filterfield{
+      width:100% !important;
+    }
+  }
+
+/* } */

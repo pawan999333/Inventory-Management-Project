@@ -1,0 +1,18 @@
+@media(max-width:768px){
+  h1{
+    font-size:15px !important;
+  }
+  button{
+    font-size:10px !important;
+  }
+  .filterfield{
+    width:100% !important;
+  }
+  .table-wrapper{
+    max-height: 230px !important;
+    overflow-y: auto !important;
+  }
+  ng-container,td{
+    width:200px !important;
+  }
+}

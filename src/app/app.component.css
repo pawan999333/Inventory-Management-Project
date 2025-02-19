@@ -1,0 +1,9 @@
+@media(max-width:768px){
+  .sidebar{
+       width:30% !important;
+  }
+  main{
+    width:70% !important;
+    /* overflow-x: hidden!important; */
+  }
+}
